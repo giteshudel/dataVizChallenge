@@ -152,7 +152,7 @@ print(avgDF_2021.head())
 ## 🤔 Discussion Questions: Stage 2 - Curation of Content
 
 **Question 1: Data Aggregation Strategy**
-- How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process?
+- How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process? 10
 :::
 
 ## Stage 3: Structuring of Visual Mappings
