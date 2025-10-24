@@ -126,6 +126,11 @@ At High altitudes we observe following components that can affect Baseball Perfo
 4. Physical Effects on Players:
       At high altitudes, oxygen levels are reduced that can affect players endurance levels. Visiting players and those not accustomed to the elevation may experience higher fatigue, soreness, and shortness of breath, which can affect stamina over the course of a game or series. With dry moutain air, dehydration occurs much faster compared to at sea level.
 
+
+Is Coors Field affected by high altitude?
+
+Yes, Coors Field is significantly affected by high altitude. With less air resistance, it causes baseballs to fly farther and hit more home runs. This also makes pitches break less which is detrimental to pitchers who rely on breaking balls. 
+
 :::
 
 ## Stage 2: Curation of Content
@@ -170,6 +175,25 @@ print(avgDF_2021.head())
 
 **Question 1: Data Aggregation Strategy**
 - How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process? 
+
+Based on output from Dataframe, we can get following details:
+
+- 2010 Dataset: total 2,430 games
+- 2021 Dataset: total 2,429 games
+- Total 4,859 games across both seasons
+
+Why do we aggregate individual games into stadium averages before we start the visualization process? 
+
+The aggregation from individual games to stadium averages can serve following purposes:
+
+1. Statistical Reliability:
+      Aggregating individual games into stadium averages smooths out high variable factors like weather or team performance on that day and help revealing underlying stadium effect. Average of ~80+ games per stadium basded on both seasons provides a much more reliable measure. 
+
+2. Meaningful Comparison:
+      Our purpose is to compare stadiums & investigate whether Coors Field is truly the most run-friendly baseball stadium, not the individual games. This requires comparing stadim characteristics and not individual game outcomes. As mentioned above, individual games are influenced by high variable factors beyond the stadium itself.
+
+3. Visualization Clarity:
+      With 4,859 individual games, a visualization would be cluttered and unreadable. Stadium-level aggregation reduces the data to ~30 data points making it possible to create clear, interpretable visualizations
 :::
 
 ## Stage 3: Structuring of Visual Mappings
