@@ -109,6 +109,23 @@ Our purpose is to investigate whether Coors Field in Denver, Colorado is truly t
 
 **Question 1: Hypothesis Formation**
 - Why might high altitude affect baseball performance?  Is Coors Field affected by high altitude?
+
+At High altitudes we observe following components that can affect Baseball Performance:
+
+1. Reduced Air Density:
+      At higher altitudes, air is less dense due to lower atmosperic pressure. With low air resistance, baseball travels farther with the same force.
+
+2. Decreased Air Resistance:
+      Thinner air provides less drag on the baseball because of which balls maintain velocity longer through the air. Outfielders have less time to react to well-hit balls.
+
+3. Ball Movement Reduction:
+      Also called as Magnus Effect, it is the force that causes spinning ball to curve. In less dense air at high altitude, this effect is weaker causing major impact on breaking pitches.
+      - Less break on pitches: Curveballs, sliders, and other breaking pitches will have less dramatic movement than at sea level.
+      - Reduced "rise" on fastballs: The backspin on a four-seam fastball creates an upward Magnus force that counteracts gravity, making it "rise" relative to a pitch with no spin. At high altitude, this effect is diminished, so the fastball drops more than it would at sea level. 
+
+4. Physical Effects on Players:
+      At high altitudes, oxygen levels are reduced that can affect players endurance levels. Visiting players and those not accustomed to the elevation may experience higher fatigue, soreness, and shortness of breath, which can affect stamina over the course of a game or series. With dry moutain air, dehydration occurs much faster compared to at sea level.
+
 :::
 
 ## Stage 2: Curation of Content
