@@ -331,17 +331,19 @@ colorado_bar = plt.Rectangle((0,0),1,1, color="darkorchid", label="Colorado Rock
 other_bar = plt.Rectangle((0,0),1,1, color="lightgrey", label="Other Stadiums")
 ax.legend(handles=[colorado_bar, other_bar], loc='lower right', frameon=True)
 
-# Add annotation for Colorado
+# Add annotation for Colorado with improved placement
 colorado_index = avgDF_2010_sorted[avgDF_2010_sorted.home == "COL"].index[0]
 colorado_runs = avgDF_2010_sorted[avgDF_2010_sorted.home == "COL"]["totalRuns"].iloc[0]
 ax.annotate(f"COL: {colorado_runs:.2f} runs/game", 
             xy=(colorado_runs, colorado_index), 
-            xytext=(colorado_runs + 0.5, colorado_index),
-            arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2),
-            fontsize=10, fontweight='bold', color='darkorchid')
+            xytext=(colorado_runs + 1.5, colorado_index + 0.3),
+            arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),
+            fontsize=11, fontweight='bold', color='darkorchid',
+            bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
-# Set x-axis to start from 0 for better comparison
-ax.set_xlim(0, max(avgDF_2010_sorted.totalRuns) * 1.1)
+# Set x-axis to start from 0 and extend enough to accommodate annotation
+max_runs = max(avgDF_2010_sorted.totalRuns)
+ax.set_xlim(0, max(colorado_runs + 3, max_runs * 1.15))
 
 # Add grid for easier reading
 ax.grid(True, alpha=0.3)
@@ -360,8 +362,51 @@ print(f"Colorado is {((colorado_runs / avgDF_2010_sorted.totalRuns.mean()) - 1) 
 ## 🤔 Discussion Questions: Stage 4 - Formatting for Your Audience
 
 **Question 1: Professional Formatting**
-- What elements make this visualization suitable for a business presentation?
-- Is the annotation on the visualization helpful?  Can you fix its placement?
+
+**What elements make this visualization suitable for a business presentation?**
+
+1. **Clear, Bold Title**: The title immediately states the conclusion ("Colorado is the Most Run-Friendly Ballpark"), making the message clear to executives who might only glance at the chart.
+
+2. **Professional Styling**: 
+   - Seaborn whitegrid style provides a clean, modern appearance
+   - Consistent font sizes (16 for title, 12 for labels) create hierarchy
+   - Subtle grid lines (alpha=0.3) aid reading without cluttering
+
+3. **Strategic Color Use**:
+   - Dark purple for Colorado creates immediate visual emphasis
+   - Light grey for other stadiums provides context without distraction
+   - Legend explains the color coding clearly
+
+4. **Proper Axis Formatting**:
+   - Descriptive axis labels ("Average Runs Per Game" is clear and unambiguous)
+   - X-axis starts at zero (critical for accurate comparisons)
+   - X-axis extends 10% beyond max value to accommodate annotation
+
+5. **Visual Emphasis on Key Finding**:
+   - Colorado highlighted with color
+   - Sorted data makes ranking immediately apparent
+   - Annotation provides exact numerical value
+
+6. **Complete Information**:
+   - All stadiums shown (no data hidden)
+   - Summary statistics provided below for detailed analysis
+   - Legend clarifies the color scheme
+
+7. **Appropriate Size**: figsize=(8, 6) is suitable for presentations - readable without dominating the slide
+
+**Is the annotation helpful? Can you fix its placement?**
+
+Yes, the annotation is helpful because it:
+- Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis
+- Reinforces the visual message with text
+- Creates a clear callout for Colorado's performance
+
+However, the current placement has issues:
+- The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap
+- The arrow and text may crowd the visualization
+- Better placement would position the text further to the right or use a different annotation style
+
+Annotation placement fixed in the above code to reflect better visualization.
 
 :::
 
@@ -416,9 +461,9 @@ col_2010_idx = comparison_data_2010[comparison_data_2010.home == "COL"].index[0]
 col_2010_runs = comparison_data_2010[comparison_data_2010.home == "COL"]["runs_2010"].iloc[0]
 axes[0].annotate(f"COL: {col_2010_runs:.2f} runs/game", 
                 xy=(col_2010_runs, col_2010_idx), 
-                xytext=(col_2010_runs + 0.5, col_2010_idx),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2),
-                fontsize=10, fontweight='bold', color='darkorchid')
+                xytext=(col_2010_runs + 1.5, col_2010_idx + 0.3),
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=11, fontweight='bold', color='darkorchid',
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # 2021 visualization
 bars_2021 = axes[1].barh(comparison_data_2021.home, comparison_data_2021.runs_2021, color=colors_2021)
@@ -432,9 +477,9 @@ col_2021_idx = comparison_data_2021[comparison_data_2021.home == "COL"].index[0]
 col_2021_runs = comparison_data_2021[comparison_data_2021.home == "COL"]["runs_2021"].iloc[0]
 axes[1].annotate(f"COL: {col_2021_runs:.2f} runs/game", 
                 xy=(col_2021_runs, col_2021_idx), 
-                xytext=(col_2021_runs + 0.5, col_2021_idx),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2),
-                fontsize=10, fontweight='bold', color='darkorchid')
+                xytext=(col_2021_runs + 1.5, col_2021_idx + 0.3),
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=11, fontweight='bold', color='darkorchid',
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # Add overall title
 fig.suptitle("Colorado (COL) Stadium Performance: 2010 vs 2021", 

@@ -423,33 +423,35 @@ When to use a vertical bar chart Time-series data: Use a vertical chart to displ
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>other_bar <span class="op">=</span> plt.Rectangle((<span class="dv">0</span>,<span class="dv">0</span>),<span class="dv">1</span>,<span class="dv">1</span>, color<span class="op">=</span><span class="st">"lightgrey"</span>, label<span class="op">=</span><span class="st">"Other Stadiums"</span>)</span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>ax.legend(handles<span class="op">=</span>[colorado_bar, other_bar], loc<span class="op">=</span><span class="st">'lower right'</span>, frameon<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add annotation for Colorado</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add annotation for Colorado with improved placement</span></span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>colorado_index <span class="op">=</span> avgDF_2010_sorted[avgDF_2010_sorted.home <span class="op">==</span> <span class="st">"COL"</span>].index[<span class="dv">0</span>]</span>
 <span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>colorado_runs <span class="op">=</span> avgDF_2010_sorted[avgDF_2010_sorted.home <span class="op">==</span> <span class="st">"COL"</span>][<span class="st">"totalRuns"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="ss">f"COL: </span><span class="sc">{</span>colorado_runs<span class="sc">:.2f}</span><span class="ss"> runs/game"</span>, </span>
 <span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(colorado_runs, colorado_index), </span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            xytext<span class="op">=</span>(colorado_runs <span class="op">+</span> <span class="fl">0.5</span>, colorado_index),</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>),</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>)</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-axis to start from 0 for better comparison</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="bu">max</span>(avgDF_2010_sorted.totalRuns) <span class="op">*</span> <span class="fl">1.1</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Add grid for easier reading</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Summary Statistics for 2010:"</span>)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Colorado (COL) average runs per game: </span><span class="sc">{</span>colorado_runs<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"League average runs per game: </span><span class="sc">{</span>avgDF_2010_sorted<span class="sc">.</span>totalRuns<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Colorado is </span><span class="sc">{</span>((colorado_runs <span class="op">/</span> avgDF_2010_sorted.totalRuns.mean()) <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">% above league average"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            xytext<span class="op">=</span>(colorado_runs <span class="op">+</span> <span class="fl">1.5</span>, colorado_index <span class="op">+</span> <span class="fl">0.3</span>),</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkorchid'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Set x-axis to start from 0 and extend enough to accommodate annotation</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>max_runs <span class="op">=</span> <span class="bu">max</span>(avgDF_2010_sorted.totalRuns)</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="dv">0</span>, <span class="bu">max</span>(colorado_runs <span class="op">+</span> <span class="dv">3</span>, max_runs <span class="op">*</span> <span class="fl">1.15</span>))</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Add grid for easier reading</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Summary Statistics for 2010:"</span>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Colorado (COL) average runs per game: </span><span class="sc">{</span>colorado_runs<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"League average runs per game: </span><span class="sc">{</span>avgDF_2010_sorted<span class="sc">.</span>totalRuns<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Colorado is </span><span class="sc">{</span>((colorado_runs <span class="op">/</span> avgDF_2010_sorted.totalRuns.mean()) <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">% above league average"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/stage-4-formatting-output-1.png" id="stage-4-formatting" width="758" height="567" class="figure-img"></p>
+<p><img src="index_files/figure-html/stage-4-formatting-output-1.png" id="stage-4-formatting" width="757" height="567" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -471,7 +473,46 @@ Colorado is 20.8% above league average</code></pre>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Question 1: Professional Formatting</strong> - What elements make this visualization suitable for a business presentation? - Is the annotation on the visualization helpful? Can you fix its placement?</p>
+<p><strong>Question 1: Professional Formatting</strong></p>
+<p><strong>What elements make this visualization suitable for a business presentation?</strong></p>
+<ol type="1">
+<li><p><strong>Clear, Bold Title</strong>: The title immediately states the conclusion (“Colorado is the Most Run-Friendly Ballpark”), making the message clear to executives who might only glance at the chart.</p></li>
+<li><p><strong>Professional Styling</strong>:</p>
+<ul>
+<li>Seaborn whitegrid style provides a clean, modern appearance</li>
+<li>Consistent font sizes (16 for title, 12 for labels) create hierarchy</li>
+<li>Subtle grid lines (alpha=0.3) aid reading without cluttering</li>
+</ul></li>
+<li><p><strong>Strategic Color Use</strong>:</p>
+<ul>
+<li>Dark purple for Colorado creates immediate visual emphasis</li>
+<li>Light grey for other stadiums provides context without distraction</li>
+<li>Legend explains the color coding clearly</li>
+</ul></li>
+<li><p><strong>Proper Axis Formatting</strong>:</p>
+<ul>
+<li>Descriptive axis labels (“Average Runs Per Game” is clear and unambiguous)</li>
+<li>X-axis starts at zero (critical for accurate comparisons)</li>
+<li>X-axis extends 10% beyond max value to accommodate annotation</li>
+</ul></li>
+<li><p><strong>Visual Emphasis on Key Finding</strong>:</p>
+<ul>
+<li>Colorado highlighted with color</li>
+<li>Sorted data makes ranking immediately apparent</li>
+<li>Annotation provides exact numerical value</li>
+</ul></li>
+<li><p><strong>Complete Information</strong>:</p>
+<ul>
+<li>All stadiums shown (no data hidden)</li>
+<li>Summary statistics provided below for detailed analysis</li>
+<li>Legend clarifies the color scheme</li>
+</ul></li>
+<li><p><strong>Appropriate Size</strong>: figsize=(8, 6) is suitable for presentations - readable without dominating the slide</p></li>
+</ol>
+<p><strong>Is the annotation helpful? Can you fix its placement?</strong></p>
+<p>Yes, the annotation is helpful because it: - Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis - Reinforces the visual message with text - Creates a clear callout for Colorado’s performance</p>
+<p>However, the current placement has issues: - The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap - The arrow and text may crowd the visualization - Better placement would position the text further to the right or use a different annotation style</p>
+<p>Annotation placement fixed in the above code to reflect better visualization.</p>
 </div>
 </div>
 </section>
@@ -520,9 +561,9 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>col_2010_runs <span class="op">=</span> comparison_data_2010[comparison_data_2010.home <span class="op">==</span> <span class="st">"COL"</span>][<span class="st">"runs_2010"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].annotate(<span class="ss">f"COL: </span><span class="sc">{</span>col_2010_runs<span class="sc">:.2f}</span><span class="ss"> runs/game"</span>, </span>
 <span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(col_2010_runs, col_2010_idx), </span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2010_runs <span class="op">+</span> <span class="fl">0.5</span>, col_2010_idx),</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>),</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>)</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2010_runs <span class="op">+</span> <span class="fl">1.5</span>, col_2010_idx <span class="op">+</span> <span class="fl">0.3</span>),</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkorchid'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co"># 2021 visualization</span></span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>bars_2021 <span class="op">=</span> axes[<span class="dv">1</span>].barh(comparison_data_2021.home, comparison_data_2021.runs_2021, color<span class="op">=</span>colors_2021)</span>
@@ -536,9 +577,9 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>col_2021_runs <span class="op">=</span> comparison_data_2021[comparison_data_2021.home <span class="op">==</span> <span class="st">"COL"</span>][<span class="st">"runs_2021"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].annotate(<span class="ss">f"COL: </span><span class="sc">{</span>col_2021_runs<span class="sc">:.2f}</span><span class="ss"> runs/game"</span>, </span>
 <span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(col_2021_runs, col_2021_idx), </span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2021_runs <span class="op">+</span> <span class="fl">0.5</span>, col_2021_idx),</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>),</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>                fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>)</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2021_runs <span class="op">+</span> <span class="fl">1.5</span>, col_2021_idx <span class="op">+</span> <span class="fl">0.3</span>),</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>                bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkorchid'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
 <span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Add overall title</span></span>
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Colorado (COL) Stadium Performance: 2010 vs 2021"</span>, </span>
@@ -564,7 +605,7 @@ Colorado is 20.8% above league average</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/advanced-oo-techniques-output-1.png" id="advanced-oo-techniques" width="1525" height="801" class="figure-img"></p>
+<p><img src="index_files/figure-html/advanced-oo-techniques-output-1.png" id="advanced-oo-techniques" width="1522" height="801" class="figure-img"></p>
 </figure>
 </div>
 </div>
