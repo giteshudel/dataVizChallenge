@@ -345,6 +345,10 @@ ax.annotate(f"COL: {colorado_runs:.2f} runs/game",
 max_runs = max(avgDF_2010_sorted.totalRuns)
 ax.set_xlim(0, max(colorado_runs + 3, max_runs * 1.15))
 
+# Control tick label font sizes (the numbers/values on axes)
+ax.tick_params(axis='x', labelsize=10)  # x-axis tick numbers
+ax.tick_params(axis='y', labelsize=9)   # y-axis stadium names
+
 # Add grid for easier reading
 ax.grid(True, alpha=0.3)
 
@@ -437,7 +441,7 @@ comparison_data = pd.merge(
 plt.style.use("seaborn-v0_8-whitegrid")
 
 # Create two-facet visualization comparing 2010 and 2021
-fig, axes = plt.subplots(1, 2, figsize=(10, 8))
+fig, axes = plt.subplots(1, 2, figsize=(8, 6))
 
 # Sort data by total runs for consistent ordering
 comparison_data_2010 = comparison_data.sort_values('runs_2010', ascending=True)
@@ -451,9 +455,12 @@ colors_2021 = ["darkorchid" if stadium == "COL" else "lightgrey"
 
 # 2010 visualization
 bars_2010 = axes[0].barh(comparison_data_2010.home, comparison_data_2010.runs_2010, color=colors_2010)
-axes[0].set_title("2010 Season: Average Runs Per Game by Stadium", fontsize=12, fontweight='bold')
-axes[0].set_xlabel("Average Runs Per Game", fontsize=12)
-axes[0].set_ylabel("Stadium (Home Team)", fontsize=12)
+axes[0].set_title("2010 Season: Average Runs Per Game by Stadium", fontsize=10, fontweight='bold')
+axes[0].set_xlabel("Average Runs Per Game", fontsize=10)
+axes[0].set_ylabel("Stadium (Home Team)", fontsize=10)
+# Control tick label font sizes (the numbers/values on axes)
+axes[0].tick_params(axis='x', labelsize=9)  # x-axis tick numbers
+axes[0].tick_params(axis='y', labelsize=8)  # y-axis stadium names (smaller for readability)
 axes[0].grid(True, alpha=0.3)
 
 # Add annotation for Colorado in 2010
@@ -462,14 +469,17 @@ col_2010_runs = comparison_data_2010[comparison_data_2010.home == "COL"]["runs_2
 axes[0].annotate(f"COL: {col_2010_runs:.2f} runs/game", 
                 xy=(col_2010_runs, col_2010_idx), 
                 xytext=(col_2010_runs + 1.5, col_2010_idx + 0.3),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=11, fontweight='bold', color='darkorchid',
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=7, fontweight='bold', color='darkorchid',
                 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # 2021 visualization
 bars_2021 = axes[1].barh(comparison_data_2021.home, comparison_data_2021.runs_2021, color=colors_2021)
-axes[1].set_title("2021 Season: Average Runs Per Game by Stadium", fontsize=12, fontweight='bold')
-axes[1].set_xlabel("Average Runs Per Game", fontsize=12)
-axes[1].set_ylabel("Stadium (Home Team)", fontsize=12)
+axes[1].set_title("2021 Season: Average Runs Per Game by Stadium", fontsize=10, fontweight='bold')
+axes[1].set_xlabel("Average Runs Per Game", fontsize=10)
+axes[1].set_ylabel("Stadium (Home Team)", fontsize=10)
+# Control tick label font sizes (the numbers/values on axes)
+axes[1].tick_params(axis='x', labelsize=9)  # x-axis tick numbers
+axes[1].tick_params(axis='y', labelsize=8)  # y-axis stadium names (smaller for readability)
 axes[1].grid(True, alpha=0.3)
 
 # Add annotation for Colorado in 2021
@@ -478,7 +488,7 @@ col_2021_runs = comparison_data_2021[comparison_data_2021.home == "COL"]["runs_2
 axes[1].annotate(f"COL: {col_2021_runs:.2f} runs/game", 
                 xy=(col_2021_runs, col_2021_idx), 
                 xytext=(col_2021_runs + 1.5, col_2021_idx + 0.3),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=11, fontweight='bold', color='darkorchid',
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=7, fontweight='bold', color='darkorchid',
                 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # Add overall title
