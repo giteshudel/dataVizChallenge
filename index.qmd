@@ -437,7 +437,7 @@ comparison_data = pd.merge(
 plt.style.use("seaborn-v0_8-whitegrid")
 
 # Create two-facet visualization comparing 2010 and 2021
-fig, axes = plt.subplots(1, 2, figsize=(16, 8))
+fig, axes = plt.subplots(1, 2, figsize=(10, 8))
 
 # Sort data by total runs for consistent ordering
 comparison_data_2010 = comparison_data.sort_values('runs_2010', ascending=True)
@@ -451,7 +451,7 @@ colors_2021 = ["darkorchid" if stadium == "COL" else "lightgrey"
 
 # 2010 visualization
 bars_2010 = axes[0].barh(comparison_data_2010.home, comparison_data_2010.runs_2010, color=colors_2010)
-axes[0].set_title("2010 Season: Average Runs Per Game by Stadium", fontsize=14, fontweight='bold')
+axes[0].set_title("2010 Season: Average Runs Per Game by Stadium", fontsize=12, fontweight='bold')
 axes[0].set_xlabel("Average Runs Per Game", fontsize=12)
 axes[0].set_ylabel("Stadium (Home Team)", fontsize=12)
 axes[0].grid(True, alpha=0.3)
@@ -467,7 +467,7 @@ axes[0].annotate(f"COL: {col_2010_runs:.2f} runs/game",
 
 # 2021 visualization
 bars_2021 = axes[1].barh(comparison_data_2021.home, comparison_data_2021.runs_2021, color=colors_2021)
-axes[1].set_title("2021 Season: Average Runs Per Game by Stadium", fontsize=14, fontweight='bold')
+axes[1].set_title("2021 Season: Average Runs Per Game by Stadium", fontsize=12, fontweight='bold')
 axes[1].set_xlabel("Average Runs Per Game", fontsize=12)
 axes[1].set_ylabel("Stadium (Home Team)", fontsize=12)
 axes[1].grid(True, alpha=0.3)
