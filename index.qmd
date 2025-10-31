@@ -253,6 +253,41 @@ plt.show()
 - Why is a horizontal bar chart better than a scatter plot for this data?
 - When would you choose a vertical bar chart over horizontal?
 
+1. Data Type Mismatch
+Stadiums are categorical data, not continuous variables
+Scatter plots are designed for continuous x and y relationships (like height vs. weight)
+Categorical data on the x-axis creates arbitrary spacing that doesn't reflect any meaningful order or distance
+The "distance" between ANA and ARI has no meaning, unlike the distance between 5 feet and 6 feet
+2. Visual Clarity and Readability
+Bar charts show magnitude clearly through bar length
+Scatter plots show individual points that are hard to compare when clustered
+Horizontal bars make stadium labels easier to read (text doesn't need to be rotated)
+Quick visual ranking is immediately apparent with sorted bars
+3. Comparison Effectiveness
+Bar length directly encodes the quantitative value (runs per game)
+Bars start from a common baseline (zero), making comparisons intuitive
+Scatter plots lack the visual reference that makes it easy to see "how much more" one stadium scores
+Eye naturally follows the bar length to compare values
+4. Highlighting Specific Categories
+Color coding works better with bars (the entire bar can be colored)
+Colorado's purple bar stands out clearly against the grey bars
+In scatter plots, single colored points can be harder to distinguish
+Annotations work more naturally with bars than floating points
+5. Best Practices for Data Visualization
+According to visualization principles:
+Use bars for categorical comparisons ✓
+Use scatter plots for relationship analysis (correlation, trends)
+Position is the most accurate visual encoding - bars leverage this effectively
+Length judgments are easier than position-only judgments
+
+
+You would choose a vertical bar chart when you have time-series data or ordinal categories with short labels. These charts, also known as column charts, are ideal for showing trends over time or comparing a small number of categories that have a natural sequence (like age ranges or months) because the height of the bars naturally represents magnitude.  
+When to use a vertical bar chart
+Time-series data: Use a vertical chart to display changes over time, such as sales figures per quarter or website visits per month. 
+Ordinal data: Choose this chart for categories that have a logical order, like age groups, educational levels, or performance ratings. The categories can be arranged along the x-axis in their natural sequence. 
+Few categories: Vertical charts are best for a limited number of categories to keep the x-axis from becoming too crowded. 
+
+
 **Question 2: Aesthetic Mappings**
 - What does the color highlighting accomplish in Approach 4?
 - How does position (x/y) compare to color for encoding data?
