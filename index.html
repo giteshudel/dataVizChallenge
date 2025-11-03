@@ -225,19 +225,13 @@ First few rows of 2010 data:
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: Hypothesis Formation</strong> - Why might high altitude affect baseball performance? Is Coors Field affected by high altitude?</p>
-<p>At High altitudes we observe following components that can affect Baseball Performance:</p>
-<ol type="1">
-<li><p>Reduced Air Density: At higher altitudes, air is less dense due to lower atmosperic pressure. With low air resistance, baseball travels farther with the same force.</p></li>
-<li><p>Decreased Air Resistance: Thinner air provides less drag on the baseball because of which balls maintain velocity longer through the air. Outfielders have less time to react to well-hit balls.</p></li>
-<li><p>Ball Movement Reduction: Also called as Magnus Effect, it is the force that causes spinning ball to curve. In less dense air at high altitude, this effect is weaker causing major impact on breaking pitches.</p>
-<ul>
-<li>Less break on pitches: Curveballs, sliders, and other breaking pitches will have less dramatic movement than at sea level.</li>
-<li>Reduced “rise” on fastballs: The backspin on a four-seam fastball creates an upward Magnus force that counteracts gravity, making it “rise” relative to a pitch with no spin. At high altitude, this effect is diminished, so the fastball drops more than it would at sea level.</li>
-</ul></li>
-<li><p>Physical Effects on Players: At high altitudes, oxygen levels are reduced that can affect players endurance levels. Visiting players and those not accustomed to the elevation may experience higher fatigue, soreness, and shortness of breath, which can affect stamina over the course of a game or series. With dry moutain air, dehydration occurs much faster compared to at sea level.</p></li>
-</ol>
-<p>Is Coors Field affected by high altitude?</p>
-<p>Yes, Coors Field is significantly affected by high altitude. With less air resistance, it causes baseballs to fly farther and hit more home runs. This also makes pitches break less which is detrimental to pitchers who rely on breaking balls.</p>
+<p><strong>At High altitudes we observe following components that can affect Baseball Performance:</strong></p>
+<p><strong>1. Reduced Air Density:</strong> At higher altitudes, air is less dense due to lower atmosperic pressure. With low air resistance, baseball travels farther with the same force.</p>
+<p><strong>2. Decreased Air Resistance:</strong> Thinner air provides less drag on the baseball because of which balls maintain velocity longer through the air. Outfielders have less time to react to well-hit balls.</p>
+<p><strong>3. Ball Movement Reduction:</strong> Also called as Magnus Effect, it is the force that causes spinning ball to curve. In less dense air at high altitude, this effect is weaker causing major impact on breaking pitches. - Less break on pitches: Curveballs, sliders, and other breaking pitches will have less dramatic movement than at sea level. - Reduced “rise” on fastballs: The backspin on a four-seam fastball creates an upward Magnus force that counteracts gravity, making it “rise” relative to a pitch with no spin. At high altitude, this effect is diminished, so the fastball drops more than it would at sea level.</p>
+<p><strong>4. Physical Effects on Players:</strong> At high altitudes, oxygen levels are reduced that can affect players endurance levels. Visiting players and those not accustomed to the elevation may experience higher fatigue, soreness, and shortness of breath, which can affect stamina over the course of a game or series. With dry moutain air, dehydration occurs much faster compared to at sea level.</p>
+<p><strong>Is Coors Field affected by high altitude?</strong></p>
+<p><strong>Yes,</strong> Coors Field is significantly affected by high altitude. With less air resistance, it causes baseballs to fly farther and hit more home runs. This also makes pitches break less which is detrimental to pitchers who rely on breaking balls.</p>
 </div>
 </div>
 </section>
@@ -300,19 +294,17 @@ First few rows of 2010 data:
 </div>
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: Data Aggregation Strategy</strong> - How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process?</p>
-<p>Based on output from Dataframe, we can get following details:</p>
+<p><strong>Based on output from Dataframe, we can get following details:</strong></p>
 <ul>
 <li>2010 Dataset: total 2,430 games</li>
 <li>2021 Dataset: total 2,429 games</li>
 <li>Total 4,859 games across both seasons</li>
 </ul>
 <p>Why do we aggregate individual games into stadium averages before we start the visualization process?</p>
-<p>The aggregation from individual games to stadium averages can serve following purposes:</p>
-<ol type="1">
-<li><p>Statistical Reliability: Aggregating individual games into stadium averages smooths out high variable factors like weather or team performance on that day and help revealing underlying stadium effect. Average of ~80+ games per stadium basded on both seasons provides a much more reliable measure.</p></li>
-<li><p>Meaningful Comparison: Our purpose is to compare stadiums &amp; investigate whether Coors Field is truly the most run-friendly baseball stadium, not the individual games. This requires comparing stadim characteristics and not individual game outcomes. As mentioned above, individual games are influenced by high variable factors beyond the stadium itself.</p></li>
-<li><p>Visualization Clarity: With 4,859 individual games, a visualization would be cluttered and unreadable. Stadium-level aggregation reduces the data to ~30 data points making it possible to create clear, interpretable visualizations</p></li>
-</ol>
+<p><strong>The aggregation from individual games to stadium averages can serve following purposes:</strong></p>
+<p><strong>1. Statistical Reliability:</strong> Aggregating individual games into stadium averages smooths out high variable factors like weather or team performance on that day and help revealing underlying stadium effect. Average of ~80+ games per stadium basded on both seasons provides a much more reliable measure.</p>
+<p><strong>2. Meaningful Comparison:</strong> Our purpose is to compare stadiums &amp; investigate whether Coors Field is truly the most run-friendly baseball stadium, not the individual games. This requires comparing stadim characteristics and not individual game outcomes. As mentioned above, individual games are influenced by high variable factors beyond the stadium itself.</p>
+<p><strong>3. Visualization Clarity:</strong> With 4,859 individual games, a visualization would be cluttered and unreadable. Stadium-level aggregation reduces the data to ~30 data points making it possible to create clear, interpretable visualizations</p>
 </div>
 </div>
 </section>
@@ -379,15 +371,33 @@ First few rows of 2010 data:
 <div class="callout-body-container callout-body">
 <p><strong>Question 1: Geometry Choices</strong> - Why is a horizontal bar chart better than a scatter plot for this data? - When would you choose a vertical bar chart over horizontal?</p>
 <ol type="1">
-<li>Data Type Mismatch Stadiums are categorical data, not continuous variables Scatter plots are designed for continuous x and y relationships (like height vs.&nbsp;weight) Categorical data on the x-axis creates arbitrary spacing that doesn’t reflect any meaningful order or distance The “distance” between ANA and ARI has no meaning, unlike the distance between 5 feet and 6 feet</li>
-<li>Visual Clarity and Readability Bar charts show magnitude clearly through bar length Scatter plots show individual points that are hard to compare when clustered Horizontal bars make stadium labels easier to read (text doesn’t need to be rotated) Quick visual ranking is immediately apparent with sorted bars</li>
-<li>Comparison Effectiveness Bar length directly encodes the quantitative value (runs per game) Bars start from a common baseline (zero), making comparisons intuitive Scatter plots lack the visual reference that makes it easy to see “how much more” one stadium scores Eye naturally follows the bar length to compare values</li>
-<li>Highlighting Specific Categories Color coding works better with bars (the entire bar can be colored) Colorado’s purple bar stands out clearly against the grey bars In scatter plots, single colored points can be harder to distinguish Annotations work more naturally with bars than floating points</li>
-<li>Best Practices for Data Visualization According to visualization principles: Use bars for categorical comparisons ✓ Use scatter plots for relationship analysis (correlation, trends) Position is the most accurate visual encoding - bars leverage this effectively Length judgments are easier than position-only judgments</li>
+<li><p><strong>Data Type Mismatch:</strong></p>
+<p>Stadiums are categorical data, not continuous variables. Scatter plots are designed for continuous x and y relationships (like height vs.&nbsp;weight). Categorical data on the x-axis creates arbitrary spacing that doesn’t reflect any meaningful order or distance. The “distance” between ANA and ARI has no meaning, unlike the distance between 5 feet and 6 feet.</p></li>
+<li><p><strong>Visual Clarity and Readability:</strong></p>
+<p>Bar charts show magnitude clearly through bar length. Scatter plots show individual points that are hard to compare when clustered. Horizontal bars make stadium labels easier to read (text doesn’t need to be rotated). Quick visual ranking is immediately apparent with sorted bars.</p></li>
+<li><p><strong>Comparison Effectiveness:</strong></p>
+<p>Bar length directly encodes the quantitative value (runs per game). Bars start from a common baseline (zero), making comparisons intuitive. Scatter plots lack the visual reference that makes it easy to see “how much more” one stadium scores. Eye naturally follows the bar length to compare values.</p></li>
+<li><p><strong>Highlighting Specific Categories:</strong></p>
+<p>Color coding works better with bars (the entire bar can be colored). Colorado’s purple bar stands out clearly against the grey bars. In scatter plots, single colored points can be harder to distinguish. Annotations work more naturally with bars than floating points.</p></li>
+<li><p><strong>Best Practices for Data Visualization:</strong></p>
+<p>According to visualization principles, - Use bars for categorical comparisons. - Use scatter plots for relationship analysis (correlation, trends). - Position is the most accurate visual encoding - bars leverage this effectively. - Length judgments are easier than position-only judgments.</p></li>
 </ol>
-<p>You would choose a vertical bar chart when you have time-series data or ordinal categories with short labels. These charts, also known as column charts, are ideal for showing trends over time or comparing a small number of categories that have a natural sequence (like age ranges or months) because the height of the bars naturally represents magnitude.<br>
-When to use a vertical bar chart Time-series data: Use a vertical chart to display changes over time, such as sales figures per quarter or website visits per month. Ordinal data: Choose this chart for categories that have a logical order, like age groups, educational levels, or performance ratings. The categories can be arranged along the x-axis in their natural sequence. Few categories: Vertical charts are best for a limited number of categories to keep the x-axis from becoming too crowded.</p>
+<p>You would choose a vertical bar chart when you have time-series data or ordinal categories with short labels. These charts, also known as column charts, are ideal for showing trends over time or comparing a small number of categories that have a natural sequence (like age ranges or months) because the height of the bars naturally represents magnitude.</p>
+<p><strong>When to use a vertical bar chart</strong></p>
+<ol type="1">
+<li><p><strong>Time-series data:</strong> Use a vertical chart to display changes over time, such as sales figures per quarter or website visits per month.</p></li>
+<li><p><strong>Ordinal data:</strong> Choose this chart for categories that have a logical order, like age groups, educational levels, or performance ratings. The categories can be arranged along the x-axis in their natural sequence.</p></li>
+<li><p><strong>Few categories:</strong> Vertical charts are best for a limited number of categories to keep the x-axis from becoming too crowded.</p></li>
+</ol>
 <p><strong>Question 2: Aesthetic Mappings</strong> - What does the color highlighting accomplish in Approach 4? - How does position (x/y) compare to color for encoding data?</p>
+<p><strong>Color highlighting serves following purpose:</strong></p>
+<ol type="1">
+<li><p><strong>Focus:</strong> Directs attention to Colorado (COL) instantly via pre-attentive color, creating visual hierarchy.</p></li>
+<li><p><strong>Context:</strong> Keeps all other stadiums visible in grey for fair comparison while emphasizing the focal category.</p></li>
+<li><p><strong>Story:</strong> Visually reinforces the narrative (“Is Coors Field most run-friendly?”) without changing quantitative encoding.</p></li>
+<li><p><strong>Clarity:</strong> Avoids label scanning; reduces cognitive load; makes the takeaway skimmable and memorable.</p></li>
+</ol>
+<p><strong>Position (x/y) vs color:</strong> - Position encodes quantitative values with highest precision and is easiest to compare across items; use it for the primary metric (bar length/axis location). - Color is categorical/ordinal emphasis with lower quantitative precision; use it to highlight groups or a focal category (e.g., COL) without replacing the primary encoding.</p>
 </div>
 </div>
 </section>
@@ -514,8 +524,10 @@ Colorado is 20.8% above league average</code></pre>
 <li><p><strong>Appropriate Size</strong>: figsize=(8, 6) is suitable for presentations - readable without dominating the slide</p></li>
 </ol>
 <p><strong>Is the annotation helpful? Can you fix its placement?</strong></p>
-<p>Yes, the annotation is helpful because it: - Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis - Reinforces the visual message with text - Creates a clear callout for Colorado’s performance</p>
-<p>However, the current placement has issues: - The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap - The arrow and text may crowd the visualization - Better placement would position the text further to the right or use a different annotation style</p>
+<ul>
+<li><p><strong>Yes, the annotation is helpful because it</strong>: - Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis. - Reinforces the visual message with text. - Creates a clear callout for Colorado’s performance.</p></li>
+<li><p><strong>However, the current placement has issues</strong>: - The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap. - The arrow and text may crowd the visualization. - Better placement would position the text further to the right or use a different annotation style.</p></li>
+</ul>
 <p>Annotation placement fixed in the above code to reflect better visualization.</p>
 </div>
 </div>
@@ -534,7 +546,7 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    avgDF_2021[[<span class="st">'home'</span>, <span class="st">'totalRuns'</span>]].rename(columns<span class="op">=</span>{<span class="st">'totalRuns'</span>: <span class="st">'runs_2021'</span>}),</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'home'</span>, how<span class="op">=</span><span class="st">'inner'</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Create the visualization</span></span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set style for professional appearance</span></span>
@@ -569,7 +581,7 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].annotate(<span class="ss">f"COL: </span><span class="sc">{</span>col_2010_runs<span class="sc">:.2f}</span><span class="ss"> runs/game"</span>, </span>
 <span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(col_2010_runs, col_2010_idx), </span>
 <span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2010_runs <span class="op">+</span> <span class="fl">1.5</span>, col_2010_idx <span class="op">+</span> <span class="fl">0.3</span>),</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">7</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">5</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
 <span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>                bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkorchid'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
 <span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a><span class="co"># 2021 visualization</span></span>
@@ -588,7 +600,7 @@ Colorado is 20.8% above league average</code></pre>
 <span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].annotate(<span class="ss">f"COL: </span><span class="sc">{</span>col_2021_runs<span class="sc">:.2f}</span><span class="ss"> runs/game"</span>, </span>
 <span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>                xy<span class="op">=</span>(col_2021_runs, col_2021_idx), </span>
 <span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(col_2021_runs <span class="op">+</span> <span class="fl">1.5</span>, col_2021_idx <span class="op">+</span> <span class="fl">0.3</span>),</span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">7</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>, lw<span class="op">=</span><span class="dv">2</span>, connectionstyle<span class="op">=</span><span class="st">'arc3,rad=0.1'</span>),fontsize<span class="op">=</span><span class="dv">5</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'darkorchid'</span>,</span>
 <span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>                bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">'round,pad=0.5'</span>, facecolor<span class="op">=</span><span class="st">'white'</span>, edgecolor<span class="op">=</span><span class="st">'darkorchid'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>))</span>
 <span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="co"># Add overall title</span></span>
@@ -615,7 +627,7 @@ Colorado is 20.8% above league average</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/advanced-oo-techniques-output-1.png" id="advanced-oo-techniques" width="768" height="613" class="figure-img"></p>
+<p><img src="index_files/figure-html/advanced-oo-techniques-output-1.png" id="advanced-oo-techniques" width="757" height="613" class="figure-img"></p>
 </figure>
 </div>
 </div>

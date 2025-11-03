@@ -110,26 +110,26 @@ Our purpose is to investigate whether Coors Field in Denver, Colorado is truly t
 **Question 1: Hypothesis Formation**
 - Why might high altitude affect baseball performance?  Is Coors Field affected by high altitude?
 
-At High altitudes we observe following components that can affect Baseball Performance:
+**At High altitudes we observe following components that can affect Baseball Performance:**
 
-1. Reduced Air Density:
+**1. Reduced Air Density:**
       At higher altitudes, air is less dense due to lower atmosperic pressure. With low air resistance, baseball travels farther with the same force.
 
-2. Decreased Air Resistance:
+**2. Decreased Air Resistance:**
       Thinner air provides less drag on the baseball because of which balls maintain velocity longer through the air. Outfielders have less time to react to well-hit balls.
 
-3. Ball Movement Reduction:
+**3. Ball Movement Reduction:**
       Also called as Magnus Effect, it is the force that causes spinning ball to curve. In less dense air at high altitude, this effect is weaker causing major impact on breaking pitches.
-      - Less break on pitches: Curveballs, sliders, and other breaking pitches will have less dramatic movement than at sea level.
-      - Reduced "rise" on fastballs: The backspin on a four-seam fastball creates an upward Magnus force that counteracts gravity, making it "rise" relative to a pitch with no spin. At high altitude, this effect is diminished, so the fastball drops more than it would at sea level. 
+            - Less break on pitches: Curveballs, sliders, and other breaking pitches will have less dramatic movement than at sea level.
+            - Reduced "rise" on fastballs: The backspin on a four-seam fastball creates an upward Magnus force that counteracts gravity, making it "rise" relative to a pitch with no spin. At high altitude, this effect is diminished, so the fastball drops more than it would at sea level. 
 
-4. Physical Effects on Players:
+**4. Physical Effects on Players:**
       At high altitudes, oxygen levels are reduced that can affect players endurance levels. Visiting players and those not accustomed to the elevation may experience higher fatigue, soreness, and shortness of breath, which can affect stamina over the course of a game or series. With dry moutain air, dehydration occurs much faster compared to at sea level.
 
 
-Is Coors Field affected by high altitude?
+**Is Coors Field affected by high altitude?**
 
-Yes, Coors Field is significantly affected by high altitude. With less air resistance, it causes baseballs to fly farther and hit more home runs. This also makes pitches break less which is detrimental to pitchers who rely on breaking balls. 
+**Yes,** Coors Field is significantly affected by high altitude. With less air resistance, it causes baseballs to fly farther and hit more home runs. This also makes pitches break less which is detrimental to pitchers who rely on breaking balls. 
 
 :::
 
@@ -176,7 +176,7 @@ print(avgDF_2021.head())
 **Question 1: Data Aggregation Strategy**
 - How many games are in the dataset? Why do we aggregate individual games into stadium averages before we start the visualization process? 
 
-Based on output from Dataframe, we can get following details:
+**Based on output from Dataframe, we can get following details:**
 
 - 2010 Dataset: total 2,430 games
 - 2021 Dataset: total 2,429 games
@@ -184,15 +184,15 @@ Based on output from Dataframe, we can get following details:
 
 Why do we aggregate individual games into stadium averages before we start the visualization process? 
 
-The aggregation from individual games to stadium averages can serve following purposes:
+**The aggregation from individual games to stadium averages can serve following purposes:**
 
-1. Statistical Reliability:
+**1. Statistical Reliability:**
       Aggregating individual games into stadium averages smooths out high variable factors like weather or team performance on that day and help revealing underlying stadium effect. Average of ~80+ games per stadium basded on both seasons provides a much more reliable measure. 
 
-2. Meaningful Comparison:
+**2. Meaningful Comparison:**
       Our purpose is to compare stadiums & investigate whether Coors Field is truly the most run-friendly baseball stadium, not the individual games. This requires comparing stadim characteristics and not individual game outcomes. As mentioned above, individual games are influenced by high variable factors beyond the stadium itself.
 
-3. Visualization Clarity:
+**3. Visualization Clarity:**
       With 4,859 individual games, a visualization would be cluttered and unreadable. Stadium-level aggregation reduces the data to ~30 data points making it possible to create clear, interpretable visualizations
 :::
 
@@ -253,44 +253,80 @@ plt.show()
 - Why is a horizontal bar chart better than a scatter plot for this data?
 - When would you choose a vertical bar chart over horizontal?
 
-1. Data Type Mismatch
-Stadiums are categorical data, not continuous variables
-Scatter plots are designed for continuous x and y relationships (like height vs. weight)
-Categorical data on the x-axis creates arbitrary spacing that doesn't reflect any meaningful order or distance
-The "distance" between ANA and ARI has no meaning, unlike the distance between 5 feet and 6 feet
-2. Visual Clarity and Readability
-Bar charts show magnitude clearly through bar length
-Scatter plots show individual points that are hard to compare when clustered
-Horizontal bars make stadium labels easier to read (text doesn't need to be rotated)
-Quick visual ranking is immediately apparent with sorted bars
-3. Comparison Effectiveness
-Bar length directly encodes the quantitative value (runs per game)
-Bars start from a common baseline (zero), making comparisons intuitive
-Scatter plots lack the visual reference that makes it easy to see "how much more" one stadium scores
-Eye naturally follows the bar length to compare values
-4. Highlighting Specific Categories
-Color coding works better with bars (the entire bar can be colored)
-Colorado's purple bar stands out clearly against the grey bars
-In scatter plots, single colored points can be harder to distinguish
-Annotations work more naturally with bars than floating points
-5. Best Practices for Data Visualization
-According to visualization principles:
-Use bars for categorical comparisons ✓
-Use scatter plots for relationship analysis (correlation, trends)
-Position is the most accurate visual encoding - bars leverage this effectively
-Length judgments are easier than position-only judgments
+1. **Data Type Mismatch:**
+
+      Stadiums are categorical data, not continuous variables.
+      Scatter plots are designed for continuous x and y relationships (like height vs. weight).
+      Categorical data on the x-axis creates arbitrary spacing that doesn't reflect any meaningful order or distance.
+      The "distance" between ANA and ARI has no meaning, unlike the distance between 5 feet and 6 feet.
 
 
-You would choose a vertical bar chart when you have time-series data or ordinal categories with short labels. These charts, also known as column charts, are ideal for showing trends over time or comparing a small number of categories that have a natural sequence (like age ranges or months) because the height of the bars naturally represents magnitude.  
-When to use a vertical bar chart
-Time-series data: Use a vertical chart to display changes over time, such as sales figures per quarter or website visits per month. 
-Ordinal data: Choose this chart for categories that have a logical order, like age groups, educational levels, or performance ratings. The categories can be arranged along the x-axis in their natural sequence. 
-Few categories: Vertical charts are best for a limited number of categories to keep the x-axis from becoming too crowded. 
+2. **Visual Clarity and Readability:**
+
+      Bar charts show magnitude clearly through bar length.
+      Scatter plots show individual points that are hard to compare when clustered.
+      Horizontal bars make stadium labels easier to read (text doesn't need to be rotated).
+      Quick visual ranking is immediately apparent with sorted bars.
+
+3. **Comparison Effectiveness:**
+
+      Bar length directly encodes the quantitative value (runs per game).
+      Bars start from a common baseline (zero), making comparisons intuitive.
+      Scatter plots lack the visual reference that makes it easy to see "how much more" one stadium scores.
+      Eye naturally follows the bar length to compare values.
+
+4. **Highlighting Specific Categories:**
+
+      Color coding works better with bars (the entire bar can be colored).
+      Colorado's purple bar stands out clearly against the grey bars.
+      In scatter plots, single colored points can be harder to distinguish.
+      Annotations work more naturally with bars than floating points.
+
+5. **Best Practices for Data Visualization:**
+
+      According to visualization principles, 
+            - Use bars for categorical comparisons.
+            - Use scatter plots for relationship analysis (correlation, trends).
+            - Position is the most accurate visual encoding - bars leverage this effectively.
+            - Length judgments are easier than position-only judgments.
+
+
+You would choose a vertical bar chart when you have time-series data or ordinal categories with short labels. These charts, also known as column charts, are ideal for showing trends over time or comparing a small number of categories that have a natural sequence (like age ranges or months) because the height of the bars naturally represents magnitude.
+
+**When to use a vertical bar chart**
+
+1. **Time-series data:** 
+      Use a vertical chart to display changes over time, such as sales figures per quarter or website visits per month. 
+
+2. **Ordinal data:** 
+      Choose this chart for categories that have a logical order, like age groups, educational levels, or performance ratings. The categories can be arranged along the x-axis in their natural sequence. 
+
+3. **Few categories:** 
+      Vertical charts are best for a limited number of categories to keep the x-axis from becoming too crowded. 
 
 
 **Question 2: Aesthetic Mappings**
 - What does the color highlighting accomplish in Approach 4?
 - How does position (x/y) compare to color for encoding data?
+
+**Color highlighting serves following purpose:**
+      
+1. **Focus:** 
+      Directs attention to Colorado (COL) instantly via pre-attentive color, creating visual hierarchy.
+      
+2. **Context:** 
+      Keeps all other stadiums visible in grey for fair comparison while emphasizing the focal category.
+      
+3. **Story:** 
+      Visually reinforces the narrative (“Is Coors Field most run-friendly?”) without changing quantitative encoding.
+      
+4. **Clarity:** 
+      Avoids label scanning; reduces cognitive load; makes the takeaway skimmable and memorable.
+
+
+**Position (x/y) vs color:**
+      - Position encodes quantitative values with highest precision and is easiest to compare across items; use it for the primary metric (bar length/axis location).
+      - Color is categorical/ordinal emphasis with lower quantitative precision; use it to highlight groups or a focal category (e.g., COL) without replacing the primary encoding.
 
 :::
 
@@ -372,43 +408,43 @@ print(f"Colorado is {((colorado_runs / avgDF_2010_sorted.totalRuns.mean()) - 1) 
 1. **Clear, Bold Title**: The title immediately states the conclusion ("Colorado is the Most Run-Friendly Ballpark"), making the message clear to executives who might only glance at the chart.
 
 2. **Professional Styling**: 
-   - Seaborn whitegrid style provides a clean, modern appearance
-   - Consistent font sizes (16 for title, 12 for labels) create hierarchy
-   - Subtle grid lines (alpha=0.3) aid reading without cluttering
+      - Seaborn whitegrid style provides a clean, modern appearance
+      - Consistent font sizes (16 for title, 12 for labels) create hierarchy
+      - Subtle grid lines (alpha=0.3) aid reading without cluttering
 
 3. **Strategic Color Use**:
-   - Dark purple for Colorado creates immediate visual emphasis
-   - Light grey for other stadiums provides context without distraction
-   - Legend explains the color coding clearly
+      - Dark purple for Colorado creates immediate visual emphasis
+      - Light grey for other stadiums provides context without distraction
+      - Legend explains the color coding clearly
 
 4. **Proper Axis Formatting**:
-   - Descriptive axis labels ("Average Runs Per Game" is clear and unambiguous)
-   - X-axis starts at zero (critical for accurate comparisons)
-   - X-axis extends 10% beyond max value to accommodate annotation
+      - Descriptive axis labels ("Average Runs Per Game" is clear and unambiguous)
+      - X-axis starts at zero (critical for accurate comparisons)
+      - X-axis extends 10% beyond max value to accommodate annotation
 
 5. **Visual Emphasis on Key Finding**:
-   - Colorado highlighted with color
-   - Sorted data makes ranking immediately apparent
-   - Annotation provides exact numerical value
+      - Colorado highlighted with color
+      - Sorted data makes ranking immediately apparent
+      - Annotation provides exact numerical value
 
 6. **Complete Information**:
-   - All stadiums shown (no data hidden)
-   - Summary statistics provided below for detailed analysis
-   - Legend clarifies the color scheme
+      - All stadiums shown (no data hidden)
+      - Summary statistics provided below for detailed analysis
+      - Legend clarifies the color scheme
 
 7. **Appropriate Size**: figsize=(8, 6) is suitable for presentations - readable without dominating the slide
 
 **Is the annotation helpful? Can you fix its placement?**
 
-Yes, the annotation is helpful because it:
-- Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis
-- Reinforces the visual message with text
-- Creates a clear callout for Colorado's performance
+- **Yes, the annotation is helpful because it**:
+      - Provides the exact numerical value (10.59 runs/game) without requiring the viewer to estimate from the axis.
+      - Reinforces the visual message with text.
+      - Creates a clear callout for Colorado's performance.
 
-However, the current placement has issues:
-- The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap
-- The arrow and text may crowd the visualization
-- Better placement would position the text further to the right or use a different annotation style
+- **However, the current placement has issues**:
+      - The text is positioned too close to the bar end (only 0.5 units away), which can cause overlap.
+      - The arrow and text may crowd the visualization.
+      - Better placement would position the text further to the right or use a different annotation style.
 
 Annotation placement fixed in the above code to reflect better visualization.
 
@@ -434,7 +470,7 @@ comparison_data = pd.merge(
     avgDF_2021[['home', 'totalRuns']].rename(columns={'totalRuns': 'runs_2021'}),
     on='home', how='inner'
 )
-
+ 
 # TODO: Create the visualization
 
 # Set style for professional appearance
@@ -469,7 +505,7 @@ col_2010_runs = comparison_data_2010[comparison_data_2010.home == "COL"]["runs_2
 axes[0].annotate(f"COL: {col_2010_runs:.2f} runs/game", 
                 xy=(col_2010_runs, col_2010_idx), 
                 xytext=(col_2010_runs + 1.5, col_2010_idx + 0.3),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=7, fontweight='bold', color='darkorchid',
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=5, fontweight='bold', color='darkorchid',
                 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # 2021 visualization
@@ -488,7 +524,7 @@ col_2021_runs = comparison_data_2021[comparison_data_2021.home == "COL"]["runs_2
 axes[1].annotate(f"COL: {col_2021_runs:.2f} runs/game", 
                 xy=(col_2021_runs, col_2021_idx), 
                 xytext=(col_2021_runs + 1.5, col_2021_idx + 0.3),
-                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=7, fontweight='bold', color='darkorchid',
+                arrowprops=dict(arrowstyle='->', color='darkorchid', lw=2, connectionstyle='arc3,rad=0.1'),fontsize=5, fontweight='bold', color='darkorchid',
                 bbox=dict(boxstyle='round,pad=0.5', facecolor='white', edgecolor='darkorchid', alpha=0.8))
 
 # Add overall title
